@@ -1,10 +1,10 @@
-FROM alpine:latest
+FROM python:3.9.10-slim-bullseye
 
-WORKDIR simplePythonApplication/
+WORKDIR courseCatalog/
 
-ADD . /simplePythonApplication/
+ADD . /courseCatalog/
 
-RUN apk add py3-pip py3-mysqlclient
+RUN apt update; apt install -y python3-mysqldb libmariadb-dev gcc
 
 RUN pip install -r requirements.txt
 
